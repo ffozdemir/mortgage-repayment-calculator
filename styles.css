@@ -78,19 +78,37 @@ main form .form-part {
 }
 
 /* Input Styles */
-main form input[type="number"], input[type="text"] {
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+main form input[type="number"],
+input[type="text"] {
   padding: 15px;
   border: 1px solid var(--color-slate-300);
   border-radius: 5px;
   font-size: var(--font-size);
 }
 
-main form input[type="number"]:hover, input[type="text"]:hover {
+main form input[type="number"]:hover,
+input[type="text"]:hover {
   border-color: var(--color-slate-900);
 }
 
-.mortgage-input-group {
+.mortgage-input-group,
+.mortgage-term-group,
+.interest-rate-group {
   position: relative;
+}
+
+.mortgage-term-group,
+.interest-rate-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .currency-symbol {
@@ -100,6 +118,24 @@ main form input[type="number"]:hover, input[type="text"]:hover {
   transform: translate(-50%, -50%);
   color: var(--color-slate-500);
   z-index: 1;
+  user-select: none;
+}
+
+.years-symbol,
+.percent-symbol {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--color-slate-500);
+  z-index: 1;
+  user-select: none;
+}
+
+.years-symbol {
+  right: 0;
+}
+.percent-symbol {
+  right: 5px;
 }
 
 #mortgage-amount {
@@ -115,11 +151,6 @@ main form input[type="number"]:hover, input[type="text"]:hover {
 
 main form input[type="number"]::placeholder {
   color: var(--color-slate-500);
-}
-
-#mortgage-term::placeholder,
-#interest-rate::placeholder {
-  text-align: right;
 }
 
 /* Radio Button Styles */
