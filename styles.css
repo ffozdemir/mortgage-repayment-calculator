@@ -95,6 +95,7 @@ main form input[type="number"]:hover {
 
 #mortgage-amount {
   width: 100%;
+  padding-left: 50px;
 }
 
 #mortgage-amount:focus {
