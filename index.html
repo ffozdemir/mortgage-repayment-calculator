@@ -1,61 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Mortgage repayment calculator</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <title>Frontend Mentor | Mortgage repayment calculator</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main>
+      <section>
+        <form>
+          <div class="form-part">
+            <h1>Mortgage Calculator</h1>
+            <button type="reset">Clear All</button>
+          </div>
+          <div class="form-part">
+            <label for="mortgage-amount">Mortgage Amount</label>
+            <input type="number" id="mortgage-amount" placeholder="£" />
+          </div>
+          <div class="form-part">
+            <label for="mortgage-term">Mortgage Term</label>
+            <input type="number" id="mortgage-term" placeholder="years" />
+          </div>
+          <div class="form-part">
+            <label for="interest-rate">Interest Rate</label>
+            <input type="number" id="interest-rate" placeholder="%" />
+          </div>
+          <div class="form-part">
+            <p>Mortgage Type</p>
+            <input type="radio" id="repayment" name="mortgage-type" />
+            <label for="repayment">Repayment</label>
+            <input type="radio" id="interest-only" name="mortgage-type" /><label
+              for="interest-only"
+              >Interest Only</label
+            >
+          </div>
+          <button type="submit">
+            <img
+              src="./assets/images/icon-calculator.svg"
+              alt="calculator-icon"
+            />
+            Calculate Repayments
+          </button>
+        </form>
+      </section>
 
-  Mortgage Calculator
-  Clear All
+      <section>
+        <img
+          src="./assets/images/illustration-empty.svg"
+          alt="illustration of financial instruments"
+        />
+        <h2>Results shown here</h2>
+        <p>
+          Complete the form and click “calculate repayments” to see what your
+          monthly repayments would be.
+        </p>
+      </section>
+    </main>
 
-  Mortgage Amount
+<!--     <div class="result">
+      <h2>Your results</h2>
+      <p>
+        Your results are shown below based on the information you provided. To
+        adjust the results, edit the form and click “calculate repayments”
+        again.
+      </p>
+      <div>
+        <p>Your monthly repayments</p>
+        <p>£1,797.74</p>
+        <p>Total you'll repay over the term</p>
+        <p>£539,322.94</p>
+      </div>
+    </div> -->
 
-  Mortgage Term
-
-  Interest Rate
-
-  Mortgage Type
-  Repayment
-  Interest Only
-
-  Calculate Repayments
-
-  <!-- Empty results start -->
-
-  Results shown here
-
-  Complete the form and click “calculate repayments” to see what 
-  your monthly repayments would be.
-
-  <!-- Empty results end -->
-
-  <!-- Completed results start -->
-
-  Your results
-
-  Your results are shown below based on the information you provided. 
-  To adjust the results, edit the form and click “calculate repayments” again.
-
-  Your monthly repayments
-
-  Total you'll repay over the term
-
-  <!-- Completed results end -->
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+    <script src="./index.js"></script>
+  </body>
 </html>
