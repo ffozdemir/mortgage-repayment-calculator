@@ -174,7 +174,7 @@ button[type="submit"] {
   border: none;
   border-radius: 35px;
   font-weight: var(--font-weight-700);
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size);
   cursor: pointer;
   display: flex;
   justify-content: center;
