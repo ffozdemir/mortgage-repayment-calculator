@@ -1,6 +1,9 @@
+/* Import Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&display=swap");
 
+/* Root Variables */
 :root {
+  /* Colors */
   --color-lime: hsl(61, 70%, 52%);
   --color-red: hsl(4, 69%, 50%);
   --color-white: hsl(0, 0%, 100%);
@@ -10,6 +13,7 @@
   --color-slate-700: hsl(200, 24%, 40%);
   --color-slate-900: hsl(202, 55%, 16%);
 
+  /* Font Settings */
   --font-family: "Plus Jakarta Sans", sans-serif;
   --font-size: 1rem;
   --font-size-lg: 1.25rem;
@@ -18,12 +22,14 @@
   --font-weight-700: 700;
 }
 
+/* Global Styles */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* Body Styles */
 body {
   display: flex;
   justify-content: center;
@@ -33,6 +39,7 @@ body {
   padding: 20px;
 }
 
+/* Main Container Styles */
 main {
   font-family: var(--font-family);
   font-size: var(--font-size);
@@ -45,6 +52,7 @@ main {
   background-color: var(--color-white);
 }
 
+/* Form Section Styles */
 .form-section {
   padding: 30px 20px;
 }
@@ -69,6 +77,7 @@ main form .form-part {
   color: var(--color-slate-500);
 }
 
+/* Input Styles */
 main form input[type="number"] {
   padding: 15px;
   border: 1px solid var(--color-slate-300);
@@ -113,6 +122,7 @@ main form input[type="number"]::placeholder {
   text-align: right;
 }
 
+/* Radio Button Styles */
 .radio-element {
   border: 1px solid var(--color-slate-300);
   border-radius: 5px;
@@ -142,6 +152,7 @@ input[type="radio"]:checked {
   accent-color: var(--color-lime);
 }
 
+/* Button Styles */
 button[type="reset"] {
   align-self: flex-start;
   background: none;
@@ -175,6 +186,7 @@ button[type="submit"]:hover {
   background-color: hsla(61, 76%, 76%, 0.918);
 }
 
+/* Result Section Styles */
 .result-section {
   display: flex;
   flex-direction: column;
@@ -227,4 +239,79 @@ button[type="submit"]:hover {
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-500);
   color: var(--color-slate-100);
+}
+
+/* Media Queries for Responsiveness (Tablet and Desktop) */
+@media (min-width: 768px) {
+  /* Main Container Adjustments */
+  main {
+    flex-direction: row;
+    max-width: 900px;
+    min-width: 600px;
+    border-radius: 25px;
+  }
+
+  /* Section Width Adjustments */
+  .form-section {
+    width: 50%;
+    padding: 30px 40px;
+  }
+
+  .result-section {
+    width: 50%;
+    padding: 30px 20px;
+    justify-content: flex-start;
+    border-radius: 0 25px 25px 75px;
+  }
+
+  /* Form Grid Layout */
+  main form {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .form-part {
+    grid-column: 1 / -1;
+    grid-auto-flow: column;
+  }
+
+  .grid-1 {
+    width: 100%;
+    grid-column: 1 / 2;
+  }
+
+  .grid-2 {
+    width: 100%;
+    grid-column: 2 / -1;
+  }
+
+  button[type="submit"] {
+    grid-column: 1/-1;
+  }
+
+  /* Result Section Adjustments */
+  .result {
+    gap: 40px;
+  }
+
+  .result-card {
+    gap: 20px;
+  }
+
+  .before-result {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    margin: auto 0;
+  }
+
+  /* Result Text Size Adjustments */
+  #monthly-repayments {
+    font-size: 3rem;
+  }
+  #repay-over-the-term {
+    font-size: 1.5rem;
+  }
 }
