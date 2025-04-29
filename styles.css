@@ -271,6 +271,15 @@ button[type="submit"]:hover {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
 
+  #form-header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  #form-header button {
+    margin-top: 5px;
+  }
+
   .form-part {
     grid-column: 1 / -1;
     grid-auto-flow: column;
