@@ -78,14 +78,14 @@ main form .form-part {
 }
 
 /* Input Styles */
-main form input[type="number"] {
+main form input[type="number"], input[type="text"] {
   padding: 15px;
   border: 1px solid var(--color-slate-300);
   border-radius: 5px;
   font-size: var(--font-size);
 }
 
-main form input[type="number"]:hover {
+main form input[type="number"]:hover, input[type="text"]:hover {
   border-color: var(--color-slate-900);
 }
 
