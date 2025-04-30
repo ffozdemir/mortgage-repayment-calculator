@@ -22,21 +22,21 @@ form.addEventListener("submit", (event) => {
 
   if (!mortgageAmount || !mortgageTerm || !interestRate || !mortgageType) {
     if (!mortgageAmount) {
-      addErrorClass(
+      displayError(
         mortgageInputGroupEl,
         mortgageAmountInputEl,
         "input-error-mortgage"
       );
     }
     if (!mortgageTerm) {
-      addErrorClass(
+      displayError(
         mortgageTermGroupEl,
         mortgageTermInputEl,
         "input-error-term"
       );
     }
     if (!interestRate) {
-      addErrorClass(interestRateGroupEl, interestInputEl, "input-error-rate");
+      displayError(interestRateGroupEl, interestInputEl, "input-error-rate");
     }
     if (!mortgageType) {
       form.querySelector("#second-radio").nextElementSibling.textContent =
@@ -70,12 +70,16 @@ form.addEventListener("submit", (event) => {
   beforeResult.classList.replace("before-result", "disactive");
 });
 
-document.querySelector('button[type="reset"]').addEventListener("click", () => {
+const resetForm = () => {
   resultDiv.classList.add("disactive");
   beforeResult.classList.replace("disactive", "before-result");
   handleRemoveErrorClasses();
   form.querySelector("#second-radio").nextElementSibling.textContent = "";
-});
+};
+
+document
+  .querySelector('button[type="reset"]')
+  .addEventListener("click", resetForm);
 
 const handleRemoveErrorClasses = () => {
   removeErrorClass(
@@ -114,7 +118,7 @@ const calculateMonthlyRepayment = (data) => {
 const calculateTotalRepayment = (monthlyRepayment, term) =>
   monthlyRepayment * term * 12;
 
-const addErrorClass = (groupEl, inputEl, errorClass) => {
+const displayError = (groupEl, inputEl, errorClass) => {
   groupEl.nextElementSibling.textContent = "This field is required.";
   inputEl.classList.add(errorClass);
   inputEl.previousElementSibling.classList.add("error-label");
@@ -124,23 +128,19 @@ const removeErrorClass = (groupEl, inputEl, errorClass) => {
   inputEl.classList.remove(errorClass);
   inputEl.previousElementSibling.classList.remove("error-label");
 };
-mortgageAmountInputEl.addEventListener("input", () => {
-  removeErrorClass(
-    mortgageInputGroupEl,
-    mortgageAmountInputEl,
-    "input-error-mortgage"
-  );
-});
-mortgageTermInputEl.addEventListener("input", () => {
-  removeErrorClass(
-    mortgageTermGroupEl,
-    mortgageTermInputEl,
-    "input-error-term"
-  );
-});
-interestInputEl.addEventListener("input", () => {
-  removeErrorClass(interestRateGroupEl, interestInputEl, "input-error-rate");
-});
+const handleInputEvent = (groupEl, inputEl, errorClass) => {
+  inputEl.addEventListener("input", () => {
+    removeErrorClass(groupEl, inputEl, errorClass);
+  });
+};
+
+handleInputEvent(
+  mortgageInputGroupEl,
+  mortgageAmountInputEl,
+  "input-error-mortgage"
+);
+handleInputEvent(mortgageTermGroupEl, mortgageTermInputEl, "input-error-term");
+handleInputEvent(interestRateGroupEl, interestInputEl, "input-error-rate");
 
 radioButtons.forEach((radio) => {
   radio.addEventListener("change", () => {
