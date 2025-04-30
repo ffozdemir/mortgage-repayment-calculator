@@ -272,6 +272,31 @@ button[type="submit"]:hover {
   color: var(--color-slate-100);
 }
 
+.disactive {
+  display: none;
+}
+
+.error {
+  color: var(--color-red) !important;
+  font-size: 0.7rem;
+  font-weight: var(--font-weight-400);
+}
+
+.input-error-mortgage {
+  border: 1px solid var(--color-red) !important;
+  border-left: 49px solid var(--color-red) !important;
+}
+
+.input-error-term {
+  border: 1px solid var(--color-red) !important;
+  border-right: 80px solid var(--color-red) !important;
+}
+
+.input-error-rate {
+  border: 1px solid var(--color-red) !important;
+  border-right: 50px solid var(--color-red) !important;
+}
+
 /* Media Queries for Responsiveness (Tablet and Desktop) */
 @media (min-width: 768px) {
   /* Main Container Adjustments */
