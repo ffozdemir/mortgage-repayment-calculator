@@ -297,6 +297,10 @@ button[type="submit"]:hover {
   border-right: 50px solid var(--color-red) !important;
 }
 
+.error-label{
+  color: var(--color-white) !important;
+}
+
 /* Media Queries for Responsiveness (Tablet and Desktop) */
 @media (min-width: 768px) {
   /* Main Container Adjustments */

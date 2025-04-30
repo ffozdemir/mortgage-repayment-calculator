@@ -73,6 +73,11 @@ form.addEventListener("submit", (event) => {
 document.querySelector('button[type="reset"]').addEventListener("click", () => {
   resultDiv.classList.add("disactive");
   beforeResult.classList.replace("disactive", "before-result");
+  handleRemoveErrorClasses();
+  form.querySelector("#second-radio").nextElementSibling.textContent = "";
+});
+
+const handleRemoveErrorClasses = () => {
   removeErrorClass(
     mortgageInputGroupEl,
     mortgageAmountInputEl,
@@ -84,8 +89,7 @@ document.querySelector('button[type="reset"]').addEventListener("click", () => {
     "input-error-term"
   );
   removeErrorClass(interestRateGroupEl, interestInputEl, "input-error-rate");
-  form.querySelector("#second-radio").nextElementSibling.textContent = "";
-});
+};
 
 const calculateMonthlyRepayment = (data) => {
   const { loanAmount, term, rate, type } = data;
@@ -96,8 +100,9 @@ const calculateMonthlyRepayment = (data) => {
   switch (type) {
     case "repayment":
       const powInterest = Math.pow(1 + monthlyInterest, monthCount);
-      monthlyRepayment =
-        (loanAmount * monthlyInterest * powInterest) / (powInterest - 1);
+      const numerator = loanAmount * monthlyInterest * powInterest;
+      const denominator = powInterest - 1;
+      monthlyRepayment = numerator / denominator;
       break;
     case "interest-only":
       monthlyRepayment = loanAmount * monthlyInterest;
@@ -112,12 +117,12 @@ const calculateTotalRepayment = (monthlyRepayment, term) =>
 const addErrorClass = (groupEl, inputEl, errorClass) => {
   groupEl.nextElementSibling.textContent = "This field is required.";
   inputEl.classList.add(errorClass);
-  inputEl.previousElementSibling.style.color = "var(--color-white) !important";
+  inputEl.previousElementSibling.classList.add("error-label");
 };
 const removeErrorClass = (groupEl, inputEl, errorClass) => {
   groupEl.nextElementSibling.textContent = "";
   inputEl.classList.remove(errorClass);
-  inputEl.previousElementSibling.style.color = "var(--color-slate-500)";
+  inputEl.previousElementSibling.classList.remove("error-label");
 };
 mortgageAmountInputEl.addEventListener("input", () => {
   removeErrorClass(
