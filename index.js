@@ -1,5 +1,4 @@
 const form = document.querySelector("form");
-const resultSection = document.querySelector(".result-section");
 const beforeResult = document.querySelector(".before-result");
 const monthlyRepayments = document.querySelector("#monthly-repayments");
 const repayOverTheTerm = document.querySelector("#repay-over-the-term");

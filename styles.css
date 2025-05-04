@@ -279,7 +279,7 @@ button[type="submit"]:hover {
 .error {
   color: var(--color-red) !important;
   font-size: 0.7rem;
-  font-weight: var(--font-weight-400);
+  font-weight: var(--font-weight-500);
 }
 
 .input-error-mortgage {
